@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/HrLeave.Api/HrLeave.Api.csproj" />
+  <Project Path="tests/HrLeave.Tests/HrLeave.Tests.csproj" />
+</Solution>

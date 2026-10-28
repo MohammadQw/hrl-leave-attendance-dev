@@ -1,0 +1,8 @@
+bin/
+obj/
+*.user
+.vs/
+# AKB per-user files — never commit
+.akb/hook-token
+.akb/state.json
+.akb-sync.zip
