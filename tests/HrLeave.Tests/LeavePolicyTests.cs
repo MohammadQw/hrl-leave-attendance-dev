@@ -62,4 +62,11 @@ public class LeavePolicyTests
         };
         Assert.Equal((23, 13), LeavePolicy.Balance(Veteran, history, Today.Year));
     }
+
+    [Fact]
+    public void Emergency_leave_is_capped_at_three_days()
+    {
+        Assert.Null(LeavePolicy.Validate(Req(Veteran, LeaveType.Emergency, 1, 3), Veteran, [], Today));
+        Assert.Contains("3 days", LeavePolicy.Validate(Req(Veteran, LeaveType.Emergency, 1, 4), Veteran, [], Today));
+    }
 }

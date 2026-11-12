@@ -13,6 +13,7 @@ public static class LeavePolicy
     public const int SickFullPayDays = 15;
     public const int HajjDays = 21;
     public const int HajjEligibleAfterYears = 2;
+    public const int EmergencyMaxDays = 3;
 
     public static int MonthsOfService(Employee e, DateOnly today)
         => (today.Year - e.JoinedOn.Year) * 12 + today.Month - e.JoinedOn.Month - (today.Day < e.JoinedOn.Day ? 1 : 0);
@@ -40,6 +41,7 @@ public static class LeavePolicy
             LeaveType.Hajj when history.Any(h => h.EmployeeId == employee.Id && h.Type == LeaveType.Hajj && h.Status == LeaveStatus.Approved)
                 => "Hajj leave can be taken once during service.",
             LeaveType.Hajj when request.Days > HajjDays => $"Hajj leave is at most {HajjDays} days.",
+            LeaveType.Emergency when request.Days > EmergencyMaxDays => $"Emergency leave is at most {EmergencyMaxDays} days per request.",
             _ => null,
         };
     }
