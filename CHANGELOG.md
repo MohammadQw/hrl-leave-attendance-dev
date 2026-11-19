@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased (develop)
+- Attendance day model: worked minutes and late check-in with grace period (TASK-006).
+
 ## 1.1.0 — release candidate (UAT)
 - Emergency leave capped at 3 days per request (TASK-003, approved at Checkpoint B).
 
